@@ -1403,6 +1403,12 @@ strong { font-weight: var(--fw-ui); color: var(--text); }
   border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
+.contact-form-card > form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+}
+
 .contact-aside { display: flex; flex-direction: column; gap: var(--s-5); }
 .contact-info {
   display: flex;
@@ -1802,8 +1808,8 @@ strong { font-weight: var(--fw-ui); color: var(--text); }
   /* Three-card sections stay 3-up through this breakpoint, unlike generic grid--3 */
   .grid--3.three-card-grid { grid-template-columns: repeat(3, 1fr); }
 
-  .detail-layout { grid-template-columns: 1fr; gap: var(--s-10); }
-  .sticky-card { position: static; }
+  /* .detail-layout stays split at this width; it stacks at 768px */
+  .detail-layout { grid-template-columns: 1.4fr 1fr; gap: var(--s-8); }
   /* .contact-layout stays side-by-side at this width; it stacks at 768px */
   .contact-layout { gap: var(--s-8); }
 
@@ -1819,6 +1825,10 @@ strong { font-weight: var(--fw-ui); color: var(--text); }
 
   /* Contact form + details stack one below the other from here down */
   .contact-layout { grid-template-columns: 1fr; gap: var(--s-10); }
+
+  /* Detail body stacks and the rate card unpins from here down */
+  .detail-layout { grid-template-columns: 1fr; gap: var(--s-10); }
+  .sticky-card { position: static; }
 
   .section { padding-block: var(--s-16); }
   .section--tight { padding-block: var(--s-12); }
@@ -1900,12 +1910,10 @@ strong { font-weight: var(--fw-ui); color: var(--text); }
   .calc-panel { padding: var(--s-6); }
   .contact-form-card { padding: var(--s-6); }
 
-  .footer-grid { grid-template-columns: 1fr; text-align: center; }
-  .footer-col { align-items: center; }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); gap: var(--s-8) var(--s-6); text-align: left; }
+  .footer-col { align-items: flex-start; }
   .footer-about { max-width: 46ch; }
-  .footer-links { align-items: center; }
-  .footer-badges, .footer-social { justify-content: center; }
-  .site-footer .brand { justify-content: center; }
+  .footer-links { align-items: flex-start; }
 
   .hero__card { position: static; width: 100%; margin-top: var(--s-4); animation: none; }
   .timeline { padding-left: var(--s-8); }
@@ -2000,6 +2008,12 @@ strong { font-weight: var(--fw-ui); color: var(--text); }
 }
 @media (max-width: 360px) {
   .mini-quote__row { grid-template-columns: 1fr; }
+
+  .footer-grid { grid-template-columns: 1fr; text-align: center; }
+  .footer-col { align-items: center; }
+  .footer-links { align-items: center; }
+  .footer-badges, .footer-social { justify-content: center; }
+  .site-footer .brand { justify-content: center; }
 }
 
 /* Branch cards under the map embed */

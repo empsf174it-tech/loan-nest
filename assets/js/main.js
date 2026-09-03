@@ -447,6 +447,73 @@
   }
 
   /* ------------------------------------------------------------------
+     10b. Stat count-up animation (runs once when scrolled into view)
+     ------------------------------------------------------------------ */
+  function initCountUp() {
+    const values = $$('.stat__value');
+    if (!values.length) return;
+
+    const reduceMotion = window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Split "$2.4B" -> { prefix:"$", number:2.4, suffix:"B", decimals:1 }
+    const parsed = values.map((el) => {
+      const match = el.textContent.trim().match(/^(\D*)([\d,]+(?:\.\d+)?)(.*)$/);
+      if (!match) return null;
+      const raw = match[2].replace(/,/g, '');
+      const dot = raw.indexOf('.');
+      return {
+        el,
+        prefix: match[1],
+        target: parseFloat(raw),
+        suffix: match[3],
+        decimals: dot === -1 ? 0 : raw.length - dot - 1,
+        grouped: match[2].indexOf(',') !== -1
+      };
+    });
+
+    const format = (item, value) => {
+      let num = value.toFixed(item.decimals);
+      if (item.grouped) num = Number(num).toLocaleString('en-US');
+      return item.prefix + num + item.suffix;
+    };
+
+    const run = (item) => {
+      if (reduceMotion) { item.el.textContent = format(item, item.target); return; }
+      const duration = 1600;
+      const start = performance.now();
+      const tick = (now) => {
+        const t = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - t, 3); // easeOutCubic
+        item.el.textContent = format(item, item.target * eased);
+        if (t < 1) requestAnimationFrame(tick);
+        else item.el.textContent = format(item, item.target);
+      };
+      requestAnimationFrame(tick);
+    };
+
+    if (!('IntersectionObserver' in window)) {
+      parsed.forEach((item) => item && run(item));
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const item = parsed.find((p) => p && p.el === entry.target);
+        if (item) run(item);
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.6 });
+
+    parsed.forEach((item) => {
+      if (!item) return;
+      item.el.textContent = format(item, 0);
+      observer.observe(item.el);
+    });
+  }
+
+  /* ------------------------------------------------------------------
      11. Footer year
      ------------------------------------------------------------------ */
   function initYear() {
@@ -467,6 +534,7 @@
     initAuthForms();
     initPasswordToggles();
     initNewsletter();
+    initCountUp();
     initYear();
   }
 
