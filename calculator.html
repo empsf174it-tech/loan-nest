@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Loan Repayment Calculator (EMI) | LoanNest</title>
+  <meta name="description" content="Estimate your monthly loan repayment, total interest and amortisation schedule for personal, auto, home and business loans, then start an application in the same place.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..580&family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- GA_TAG — paste the Google Analytics snippet here -->
+
+  <script>
+    /* Apply the stored theme before first paint to avoid a flash of the wrong theme. */
+    (function () {
+      try {
+        var stored = localStorage.getItem('loannest-theme');
+        var dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', stored || (dark ? 'dark' : 'light'));
+      } catch (e) { /* storage blocked — default theme stays applied */ }
+    })();
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="LoanNest — home">
+        <img class="brand__logo" src="assets/images/loannest-logo.svg" alt="LoanNest" width="140" height="44">
+      </a>
+
+      <nav class="nav" id="primaryNav" aria-label="Primary">
+        <button class="nav__close" id="navClose" type="button" aria-label="Close menu">
+          <i class="ph ph-x" aria-hidden="true"></i>
+        </button>
+        <ul class="nav__list">
+          <li><a class="nav__link" href="index.html">Home</a></li>
+          <li><a class="nav__link" href="loans.html">Loans</a></li>
+          <li><a class="nav__link is-active" href="calculator.html" aria-current="page">Calculator</a></li>
+          <li><a class="nav__link" href="about.html">About</a></li>
+          <li><a class="nav__link" href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav__drawer-actions">
+          <div class="nav__drawer-theme">
+            <span>Appearance</span>
+            <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode">
+              <i class="ph ph-sun" aria-hidden="true"></i>
+              <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+          </div>
+          <a class="btn btn--primary btn--block" href="login.html">Login</a>
+        </div>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode">
+          <i class="ph ph-sun" aria-hidden="true"></i>
+          <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+        <a class="btn btn--primary btn--sm" href="login.html">Login</a>
+        <button class="hamburger" id="navToggle" type="button" aria-label="Open menu"
+                aria-expanded="false" aria-controls="primaryNav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="nav-backdrop" id="navBackdrop" hidden></div>
+
+  <main id="main">
+
+    <!-- ========================== PAGE HERO ========================== -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero__inner">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="ph ph-caret-right" aria-hidden="true"></i>
+            <span aria-current="page">Calculator</span>
+          </nav>
+          <span class="eyebrow fade-up fade-up--1">
+            <i class="ph ph-calculator" aria-hidden="true"></i> EMI calculator
+          </span>
+          <h1 class="fade-up fade-up--2">Work out the real monthly cost</h1>
+          <p class="lead fade-up fade-up--3">
+            Change the amount, rate and term and watch the numbers move. Nothing is sent anywhere and
+            nothing touches your credit file.
+          </p>
+        </div>
+        <div class="page-hero__media fade-up fade-up--4">
+          <img src="https://images.unsplash.com/photo-1579621970795-87facc2f976d?auto=format&fit=crop&w=1200&q=80"
+               alt="A calculator resting on loan documents used to work out a monthly repayment"
+               width="1200" height="514" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================== CALCULATOR ========================== -->
+    <section class="section" aria-labelledby="calc-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="calc-title">Model your repayment</h2>
+          <p>Pick a product to load its typical rate and limits, then adjust anything you like.</p>
+        </div>
+
+        <div class="calc-layout" id="emiCalculator">
+
+          <!-- ---------------------- Controls ---------------------- -->
+          <div class="calc-panel">
+            <div class="field">
+              <label for="calcType">Loan type</label>
+              <select id="calcType">
+                <option value="personal" selected>Personal loan — 9.4% APR</option>
+                <option value="auto">Auto loan — 6.8% APR</option>
+                <option value="home">Home loan — 5.9% APR</option>
+                <option value="business">Business loan — 8.2% APR</option>
+              </select>
+            </div>
+
+            <div class="calc-control">
+              <div class="calc-control__top">
+                <label class="calc-control__label" for="calcAmountInput">Loan amount</label>
+                <div class="calc-control__input">
+                  <span aria-hidden="true">$</span>
+                  <input type="text" id="calcAmountInput" inputmode="numeric" value="18,000"
+                         autocomplete="off" aria-describedby="calcAmountMsg">
+                </div>
+              </div>
+              <label class="visually-hidden" for="calcAmount">Loan amount slider</label>
+              <input class="range" type="range" id="calcAmount" min="2000" max="50000" step="500" value="18000">
+              <div class="calc-control__range-labels">
+                <span id="calcAmountMin">$2,000</span>
+                <span id="calcAmountMax">$50,000</span>
+              </div>
+              <p class="calc-msg" id="calcAmountMsg" role="alert"></p>
+            </div>
+
+            <div class="calc-control">
+              <div class="calc-control__top">
+                <label class="calc-control__label" for="calcRateInput">Interest rate (APR)</label>
+                <div class="calc-control__input">
+                  <input type="text" id="calcRateInput" inputmode="decimal" value="9.4"
+                         autocomplete="off" aria-describedby="calcRateMsg">
+                  <span aria-hidden="true">%</span>
+                </div>
+              </div>
+              <label class="visually-hidden" for="calcRate">Interest rate slider</label>
+              <input class="range" type="range" id="calcRate" min="1" max="24" step="0.1" value="9.4">
+              <div class="calc-control__range-labels">
+                <span>1.0%</span>
+                <span>24.0%</span>
+              </div>
+              <p class="calc-msg" id="calcRateMsg" role="alert"></p>
+            </div>
+
+            <div class="calc-control">
+              <div class="calc-control__top">
+                <label class="calc-control__label" for="calcTermInput">Term</label>
+                <div class="calc-control__input">
+                  <input type="text" id="calcTermInput" inputmode="numeric" value="48"
+                         autocomplete="off" aria-describedby="calcTermMsg">
+                  <span aria-hidden="true">mo</span>
+                </div>
+              </div>
+              <label class="visually-hidden" for="calcTerm">Term in months slider</label>
+              <input class="range" type="range" id="calcTerm" min="6" max="360" step="6" value="48">
+              <div class="calc-control__range-labels">
+                <span>6 months</span>
+                <span>360 months</span>
+              </div>
+              <p class="calc-msg" id="calcTermMsg" role="alert"></p>
+            </div>
+
+            <p class="form-note">
+              <i class="ph ph-lock-simple" aria-hidden="true"></i>
+              Secure connection · every figure is calculated in your browser
+            </p>
+          </div>
+
+          <!-- ----------------------- Results ----------------------- -->
+          <div class="calc-panel calc-panel--result">
+            <div class="calc-emi">
+              <span class="calc-emi__label">Estimated monthly payment</span>
+              <span class="calc-emi__value" id="calcEmi" role="status">—</span>
+              <p class="card__text">over <span id="calcTermOut">4 years</span></p>
+            </div>
+
+            <div class="calc-breakdown">
+              <div class="calc-row">
+                <span>Amount borrowed</span>
+                <strong id="calcPrincipal">—</strong>
+              </div>
+              <div class="calc-row">
+                <span>Total interest</span>
+                <strong id="calcInterest">—</strong>
+              </div>
+              <div class="calc-row">
+                <span>Total repayable</span>
+                <strong id="calcTotal">—</strong>
+              </div>
+            </div>
+
+            <div class="calc-split">
+              <div class="calc-split__bar" role="img" aria-label="Split between principal and interest">
+                <i class="calc-split__principal" id="barPrincipal"></i>
+                <i class="calc-split__interest" id="barInterest"></i>
+              </div>
+              <div class="calc-legend">
+                <span><b class="calc-split__principal"></b> Principal</span>
+                <span><b class="calc-split__interest"></b> Interest</span>
+              </div>
+            </div>
+
+            <p class="disclaimer calc-disclaimer-light">
+              <i class="ph ph-info" aria-hidden="true"></i>
+              <span>These are estimates for guidance only, not an offer of credit or financial advice.
+              Actual payments depend on your approved rate, start date and payment schedule.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== AMORTISATION TABLE ====================== -->
+    <section class="section section--alt" aria-labelledby="schedule-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow"><i class="ph ph-calendar-check" aria-hidden="true"></i> Year by year</span>
+          <h2 id="schedule-title">Where each payment actually goes</h2>
+          <p>Early payments are mostly interest. As the balance falls, more of each payment starts
+             clearing the principal.</p>
+        </div>
+
+        <div class="table-wrap reveal">
+          <table class="data-table">
+            <caption class="visually-hidden">Estimated yearly repayment schedule</caption>
+            <thead>
+              <tr>
+                <th scope="col">Period</th>
+                <th scope="col">Principal paid</th>
+                <th scope="col">Interest paid</th>
+                <th scope="col">Balance remaining</th>
+              </tr>
+            </thead>
+            <tbody id="calcSchedule"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= APPLICATION FORM ======================= -->
+    <section class="section" aria-labelledby="apply-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow"><i class="ph ph-paper-plane-tilt" aria-hidden="true"></i> Step two</span>
+          <h2 id="apply-title">Happy with the numbers? Start your application</h2>
+          <p>Six details is all we need to run a soft search and come back with your real rate.</p>
+        </div>
+
+        <div class="contact-form-card reveal">
+          <div class="form-success" id="applySuccess" role="status">
+            <i class="ph ph-check-circle" aria-hidden="true"></i>
+            <span><strong>Application started.</strong> A LoanNest specialist will call you within one
+              working day with your personalised rate. Reference: LN-2026-0417.</span>
+          </div>
+
+          <!-- Formspree / Netlify Forms: swap in your endpoint, e.g. action="https://formspree.io/f/xxxx" -->
+          <form id="applyForm" novalidate>
+            <div class="apply-grid">
+              <div class="field">
+                <label for="applyName">Full name <span class="req" aria-hidden="true">*</span></label>
+                <div class="field__wrap">
+                  <input type="text" id="applyName" name="name" placeholder="Maya Rodriguez"
+                         autocomplete="name" required>
+                  <i class="ph ph-check-circle field__ok" aria-hidden="true"></i>
+                </div>
+                <span class="field__msg" role="alert"><i class="ph ph-warning-circle" aria-hidden="true"></i> This field is required.</span>
+              </div>
+
+              <div class="field">
+                <label for="applyEmail">Email address <span class="req" aria-hidden="true">*</span></label>
+                <div class="field__wrap">
+                  <input type="email" id="applyEmail" name="email" placeholder="you@example.com"
+                         autocomplete="email" required>
+                  <i class="ph ph-check-circle field__ok" aria-hidden="true"></i>
+                </div>
+                <span class="field__msg" role="alert"><i class="ph ph-warning-circle" aria-hidden="true"></i> Enter a valid email address.</span>
+              </div>
+
+              <div class="field">
+                <label for="applyPhone">Phone number <span class="req" aria-hidden="true">*</span></label>
+                <div class="field__wrap">
+                  <input type="tel" id="applyPhone" name="phone" placeholder="+1 555 018 4420"
+                         autocomplete="tel" required>
+                  <i class="ph ph-check-circle field__ok" aria-hidden="true"></i>
+                </div>
+                <span class="field__msg" role="alert"><i class="ph ph-warning-circle" aria-hidden="true"></i> Enter a valid phone number.</span>
+              </div>
+
+              <div class="field">
+                <label for="applyAmount">Amount needed ($) <span class="req" aria-hidden="true">*</span></label>
+                <div class="field__wrap">
+                  <input type="text" id="applyAmount" name="amount" inputmode="numeric"
+                         placeholder="18,000" autocomplete="off" required>
+                  <i class="ph ph-check-circle field__ok" aria-hidden="true"></i>
+                </div>
+                <span class="field__msg" role="alert"><i class="ph ph-warning-circle" aria-hidden="true"></i> Enter an amount between $1,000 and $1,500,000.</span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="applyEmployment">Employment status <span class="req" aria-hidden="true">*</span></label>
+              <select id="applyEmployment" name="employment" required>
+                <option value="">Select your status</option>
+                <option value="employed-full">Employed — full time</option>
+                <option value="employed-part">Employed — part time</option>
+                <option value="self-employed">Self-employed</option>
+                <option value="contract">Contractor</option>
+                <option value="retired">Retired</option>
+              </select>
+              <span class="field__msg" role="alert"><i class="ph ph-warning-circle" aria-hidden="true"></i> Select your employment status.</span>
+            </div>
+
+            <div class="field">
+              <label class="checkbox" for="applyConsent">
+                <input type="checkbox" id="applyConsent" name="consent" required>
+                <span>I agree to a soft credit search, which does not affect my credit score, and to
+                  LoanNest contacting me about this enquiry. <a href="#main">Privacy notice</a>.</span>
+              </label>
+              <span class="field__msg" role="alert"><i class="ph ph-warning-circle" aria-hidden="true"></i> Please agree to the soft credit check to continue.</span>
+            </div>
+
+            <button class="btn btn--primary btn--block" type="submit">
+              Start my application <i class="ph ph-arrow-right" aria-hidden="true"></i>
+            </button>
+
+            <p class="form-note">
+              <i class="ph ph-lock-simple" aria-hidden="true"></i>
+              Secure connection · this demonstration form does not transmit or store any data
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= CTA ============================= -->
+    <section class="section section--tight" aria-labelledby="calc-cta-title">
+      <div class="container">
+        <div class="cta-band reveal">
+          <span class="eyebrow"><i class="ph ph-chats-circle" aria-hidden="true"></i> Prefer to talk?</span>
+          <h2 id="calc-cta-title">A specialist can run the numbers with you</h2>
+          <p>Ten minutes on the phone, no obligation, and a written illustration afterwards.</p>
+          <div class="cta-band__actions">
+            <a class="btn btn--accent" href="contact.html">
+              Book a callback <i class="ph ph-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a class="btn btn--light" href="loans.html">Compare products</a>
+          </div>
+          <p class="cta-band__note">Lines are open Monday to Friday, 8am to 7pm.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a class="brand" href="index.html" aria-label="LoanNest — home">
+            <img class="brand__logo" src="assets/images/loannest-logo.svg" alt="LoanNest" width="140" height="44">
+          </a>
+          <p class="footer-about">Fixed-rate personal, auto, home and business lending with the total
+             cost shown up front — since 2014.</p>
+          <div class="footer-badges">
+            <span class="trust-chip"><i class="ph ph-lock-simple" aria-hidden="true"></i> SSL secured</span>
+            <span class="trust-chip"><i class="ph ph-certificate" aria-hidden="true"></i> NMLS #000000</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Borrowing</h4>
+          <nav class="footer-links" aria-label="Borrowing">
+            <a href="loans.html">All loan types</a>
+            <a href="loan-detail.html">Personal loans</a>
+            <a href="loans.html?type=home">Home loans</a>
+            <a href="calculator.html">EMI calculator</a>
+          </nav>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <nav class="footer-links" aria-label="Company">
+            <a href="about.html">About us</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html">Customer login</a>
+            <a href="register.html">Open an account</a>
+          </nav>
+        </div>
+
+        <div class="footer-col">
+          <h4>Stay in the loop</h4>
+          <p class="footer-about">Rate changes and borrowing guides. One email a month, no selling.</p>
+          <!-- Mailchimp embed: replace this form action with your list's post URL -->
+          <form class="newsletter" novalidate>
+            <label class="visually-hidden" for="newsletterEmail">Email address</label>
+            <input type="email" id="newsletterEmail" name="EMAIL" placeholder="you@example.com" required>
+            <button class="btn btn--accent btn--sm" type="submit">Join</button>
+          </form>
+          <p class="newsletter-note" role="status"></p>
+          <div class="footer-social">
+            <a href="#" aria-label="LoanNest on X"><i class="ph ph-x-logo" aria-hidden="true"></i></a>
+            <a href="#" aria-label="LoanNest on LinkedIn"><i class="ph ph-linkedin-logo" aria-hidden="true"></i></a>
+            <a href="#" aria-label="LoanNest on Instagram"><i class="ph ph-instagram-logo" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-disclosure">
+          LoanNest is a placeholder financial services brand created for demonstration purposes. It is
+          not a real financial institution and does not offer credit. All rates, figures, approval
+          times and calculator results shown are illustrative estimates only and are not financial
+          advice or an offer of credit. Equal Credit Opportunity Lender.
+        </p>
+        <p class="footer-copy">© <span data-year>2026</span> LoanNest. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/calculator.js"></script>
+</body>
+</html>

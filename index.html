@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LoanNest — Clear, Fair Personal &amp; Home Lending</title>
+  <meta name="description"
+    content="LoanNest offers personal, auto, home and business loans with fixed rates, no hidden fees and a decision in 24 hours. Estimate your monthly payment in seconds.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..580&family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- GA_TAG — paste the Google Analytics snippet here -->
+
+  <script>
+    /* Apply the stored theme before first paint to avoid a flash of the wrong theme. */
+    (function () {
+      try {
+        var stored = localStorage.getItem('loannest-theme');
+        var dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', stored || (dark ? 'dark' : 'light'));
+      } catch (e) { /* storage blocked — default theme stays applied */ }
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FinancialService",
+    "name": "LoanNest",
+    "description": "Personal, auto, home and business lending with fixed rates and transparent fees.",
+    "url": "https://www.loannest.example/",
+    "logo": "https://www.loannest.example/assets/img/logo.png",
+    "telephone": "+1-800-555-0142",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "410 Cedar Row, Suite 900",
+      "addressLocality": "Portland",
+      "addressRegion": "OR",
+      "postalCode": "97204",
+      "addressCountry": "US"
+    },
+    "openingHours": "Mo-Fr 08:00-19:00",
+    "areaServed": "US",
+    "disambiguatingDescription": "Demonstration brand. Not a real financial institution."
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="LoanNest — home">
+        <img class="brand__logo" src="assets/images/loannest-logo.svg" alt="LoanNest" width="140" height="44">
+      </a>
+
+      <nav class="nav" id="primaryNav" aria-label="Primary">
+        <button class="nav__close" id="navClose" type="button" aria-label="Close menu">
+          <i class="ph ph-x" aria-hidden="true"></i>
+        </button>
+        <ul class="nav__list">
+          <li><a class="nav__link is-active" href="index.html" aria-current="page">Home</a></li>
+          <li><a class="nav__link" href="loans.html">Loans</a></li>
+          <li><a class="nav__link" href="calculator.html">Calculator</a></li>
+          <li><a class="nav__link" href="about.html">About</a></li>
+          <li><a class="nav__link" href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav__drawer-actions">
+          <div class="nav__drawer-theme">
+            <span>Appearance</span>
+            <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode">
+              <i class="ph ph-sun" aria-hidden="true"></i>
+              <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+          </div>
+          <a class="btn btn--primary btn--block" href="login.html">Login</a>
+        </div>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode">
+          <i class="ph ph-sun" aria-hidden="true"></i>
+          <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+        <a class="btn btn--primary btn--sm" href="login.html">Login</a>
+        <button class="hamburger" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false"
+          aria-controls="primaryNav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="nav-backdrop" id="navBackdrop" hidden></div>
+
+  <main id="main">
+
+    <!-- ============================ HERO ============================ -->
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <span class="eyebrow fade-up fade-up--1">
+            <i class="ph ph-shield-check" aria-hidden="true"></i> Licensed lender · NMLS #000000
+          </span>
+          <h1 class="hero__title fade-up fade-up--2">
+            Borrowing, made <em>refreshingly clear</em>.
+          </h1>
+          <p class="lead hero__text fade-up fade-up--3">
+            Fixed rates, no origination fees and a real answer within 24 hours. See the exact
+            monthly payment before you apply — not after.
+          </p>
+          <div class="hero__actions fade-up fade-up--4">
+            <a class="btn btn--primary" href="loans.html">
+              Explore loan options <i class="ph ph-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a class="btn btn--ghost" href="calculator.html">
+              <i class="ph ph-calculator" aria-hidden="true"></i> Estimate my payment
+            </a>
+          </div>
+          <div class="hero__proof fade-up fade-up--5">
+            <div class="hero__proof-item">
+              <span class="hero__proof-value">5.9%</span>
+              <span class="hero__proof-label">Home loans from (APR)</span>
+            </div>
+            <div class="hero__proof-item">
+              <span class="hero__proof-value">24 hrs</span>
+              <span class="hero__proof-label">Average decision time</span>
+            </div>
+            <div class="hero__proof-item">
+              <span class="hero__proof-value">$0</span>
+              <span class="hero__proof-label">Origination fees</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__media fade-up fade-up--3">
+          <img class="hero__photo" src="assets/images/hero-photo.jpg"
+            alt="A LoanNest lending specialist reviewing repayment options with a customer at a desk" width="900"
+            height="1125" fetchpriority="high">
+          <div class="hero__card">
+            <div class="hero__card-row">
+              <span class="hero__card-label">Application · Maya R.</span>
+              <span class="hero__card-value">92%</span>
+            </div>
+            <div class="hero__card-bar"><span></span></div>
+            <div class="hero__card-row">
+              <span class="hero__card-label">Approved in</span>
+              <span class="hero__card-value">6h 12m</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== QUICK QUOTE WIDGET ==================== -->
+    <section class="section section--tight" aria-labelledby="quote-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow"><i class="ph ph-lightning" aria-hidden="true"></i> 30-second estimate</span>
+          <h2 id="quote-title">What would it cost you a month?</h2>
+          <p>Move the numbers around before you speak to anyone. Nothing here touches your credit file.</p>
+        </div>
+
+        <div class="quote-widget reveal" id="quickQuote" data-rate="8.9">
+          <div class="quote-widget__grid">
+            <div class="mini-quote__field">
+              <label for="qqAmount">How much do you need?</label>
+              <input type="text" id="qqAmount" inputmode="numeric" value="18,000" autocomplete="off"
+                aria-describedby="qqNote">
+            </div>
+            <div class="mini-quote__field">
+              <label for="qqTerm">Over how long?</label>
+              <select id="qqTerm">
+                <option value="24">2 years</option>
+                <option value="36">3 years</option>
+                <option value="48" selected>4 years</option>
+                <option value="60">5 years</option>
+                <option value="84">7 years</option>
+              </select>
+            </div>
+          </div>
+          <div class="quote-widget__out">
+            <div>
+              <p id="qqNote" class="hero__card-label">Estimated repayment at 8.9% APR</p>
+              <span class="quote-widget__amount" id="qqEmi">—</span>
+            </div>
+            <a class="btn btn--accent" id="qqLink" href="calculator.html">
+              Open full calculator <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+            </a>
+          </div>
+          <p class="disclaimer">
+            <i class="ph ph-info" aria-hidden="true"></i>
+            <span>Estimate only. Your actual rate depends on credit history, income and term, and is
+              confirmed in writing before any agreement. This is a demonstration site.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ STATS ============================ -->
+    <section class="section section--tight stat-band" aria-label="LoanNest by the numbers">
+      <div class="container">
+        <div class="grid grid--4">
+          <div class="stat">
+            <span class="stat__value">$2.4B</span>
+            <span class="stat__label">Funded since 2014</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value">186k</span>
+            <span class="stat__label">Loans approved</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value">4.8/5</span>
+            <span class="stat__label">Average customer rating</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value">98%</span>
+            <span class="stat__label">Would borrow again</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= LOAN PRODUCTS ========================= -->
+    <section class="section" aria-labelledby="products-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow"><i class="ph ph-squares-four" aria-hidden="true"></i> Our lending</span>
+          <h2 id="products-title">Four ways to borrow, one honest rate card</h2>
+          <p>Every product carries a fixed rate for the full term. No teaser pricing, no fees bolted
+            on at signing.</p>
+        </div>
+
+        <div class="grid grid--4">
+          <article class="loan-card reveal">
+            <span class="loan-card__icon" aria-hidden="true"><i class="ph ph-wallet"></i></span>
+            <h3>Personal Loan</h3>
+            <div class="loan-card__rate">
+              <span class="loan-card__rate-value">9.4%</span>
+              <span class="loan-card__rate-label">APR from</span>
+            </div>
+            <p class="loan-card__text">Consolidate cards, cover a move or fund a project — unsecured
+              and paid out in as little as two days.</p>
+            <div class="loan-card__meta">
+              <div>Amount <span>$2k – $50k</span></div>
+              <div>Term <span>1 – 7 yrs</span></div>
+            </div>
+            <div class="loan-card__actions">
+              <a class="btn btn--ghost btn--block btn--sm" href="loan-detail.html">View details</a>
+            </div>
+          </article>
+
+          <article class="loan-card reveal" data-reveal-delay="80">
+            <span class="loan-card__icon" aria-hidden="true"><i class="ph ph-car"></i></span>
+            <h3>Auto Loan</h3>
+            <div class="loan-card__rate">
+              <span class="loan-card__rate-value">6.8%</span>
+              <span class="loan-card__rate-label">APR from</span>
+            </div>
+            <p class="loan-card__text">New, used or refinanced. Get your rate before you set foot in
+              the dealership and negotiate as a cash buyer.</p>
+            <div class="loan-card__meta">
+              <div>Amount <span>$5k – $100k</span></div>
+              <div>Term <span>2 – 7 yrs</span></div>
+            </div>
+            <div class="loan-card__actions">
+              <a class="btn btn--ghost btn--block btn--sm" href="loans.html?type=auto">View details</a>
+            </div>
+          </article>
+
+          <article class="loan-card reveal" data-reveal-delay="160">
+            <span class="loan-card__icon" aria-hidden="true"><i class="ph ph-house-line"></i></span>
+            <h3>Home Loan</h3>
+            <div class="loan-card__rate">
+              <span class="loan-card__rate-value">5.9%</span>
+              <span class="loan-card__rate-label">APR from</span>
+            </div>
+            <p class="loan-card__text">Purchase, remortgage or release equity, with a named
+              underwriter who stays with your file to completion.</p>
+            <div class="loan-card__meta">
+              <div>Amount <span>$50k – $1.5M</span></div>
+              <div>Term <span>10 – 30 yrs</span></div>
+            </div>
+            <div class="loan-card__actions">
+              <a class="btn btn--ghost btn--block btn--sm" href="loans.html?type=home">View details</a>
+            </div>
+          </article>
+
+          <article class="loan-card reveal" data-reveal-delay="240">
+            <span class="loan-card__icon" aria-hidden="true"><i class="ph ph-storefront"></i></span>
+            <h3>Business Loan</h3>
+            <div class="loan-card__rate">
+              <span class="loan-card__rate-value">8.2%</span>
+              <span class="loan-card__rate-label">APR from</span>
+            </div>
+            <p class="loan-card__text">Working capital and equipment finance for trading businesses,
+              assessed on cash flow rather than a single score.</p>
+            <div class="loan-card__meta">
+              <div>Amount <span>$10k – $500k</span></div>
+              <div>Term <span>1 – 10 yrs</span></div>
+            </div>
+            <div class="loan-card__actions">
+              <a class="btn btn--ghost btn--block btn--sm" href="loans.html?type=business">View details</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="section-foot">
+          <a class="link-arrow" href="loans.html">
+            Compare all eight products <i class="ph ph-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= HOW IT WORKS ========================= -->
+    <section class="section section--alt" aria-labelledby="steps-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow"><i class="ph ph-path" aria-hidden="true"></i> How it works</span>
+          <h2 id="steps-title">Three steps, no paperwork mountain</h2>
+          <p>Check your rate with a soft search that leaves your credit score untouched.</p>
+        </div>
+
+        <div class="grid grid--3 three-card-grid">
+          <article class="step reveal">
+            <span class="step__num" aria-hidden="true">01</span>
+            <h3>Check your rate</h3>
+            <p class="step__text">Answer six questions and see your personalised rate in about two
+              minutes. Soft search only — your score is unaffected.</p>
+          </article>
+          <article class="step reveal" data-reveal-delay="100">
+            <span class="step__num" aria-hidden="true">02</span>
+            <h3>Confirm the details</h3>
+            <p class="step__text">Upload ID and proof of income from your phone. A named specialist
+              reviews the file and calls you if anything is unclear.</p>
+          </article>
+          <article class="step reveal" data-reveal-delay="200">
+            <span class="step__num" aria-hidden="true">03</span>
+            <h3>Get your funds</h3>
+            <p class="step__text">Sign electronically and receive the money in your account, usually
+              the next working day. Overpay any time, free of charge.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= STORY / ABOUT ========================= -->
+    <section class="section" aria-labelledby="story-title">
+      <div class="container split">
+        <div class="split__media reveal">
+          <img src="assets/images/story-team.jpg"
+            alt="The LoanNest underwriting team reviewing applications together in their Portland office" width="900"
+            height="720" loading="lazy">
+        </div>
+        <div class="split__copy reveal" data-reveal-delay="120">
+          <span class="eyebrow"><i class="ph ph-seal-check" aria-hidden="true"></i> Since 2014</span>
+          <h2 id="story-title">Built by people who were tired of the small print</h2>
+          <p>LoanNest started when three former bank underwriters kept watching good applications get
+            declined by a scorecard nobody could explain. We rebuilt the process around a simple
+            promise: show people the real cost first, then let a human make the call.</p>
+          <div class="split__list">
+            <div class="split__item">
+              <i class="ph ph-eye" aria-hidden="true"></i>
+              <div>
+                <h4>Every cost, up front</h4>
+                <p>Your total repayable figure appears on screen before you ever sign anything.</p>
+              </div>
+            </div>
+            <div class="split__item">
+              <i class="ph ph-user-focus" aria-hidden="true"></i>
+              <div>
+                <h4>A person, not a scorecard</h4>
+                <p>Borderline applications go to an underwriter who reads your circumstances.</p>
+              </div>
+            </div>
+            <div class="split__item">
+              <i class="ph ph-arrows-counter-clockwise" aria-hidden="true"></i>
+              <div>
+                <h4>Overpay whenever you like</h4>
+                <p>Settle early or pay extra each month — there is never a penalty for it.</p>
+              </div>
+            </div>
+          </div>
+          <a class="btn btn--ghost" href="about.html">
+            Read our story <i class="ph ph-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TRUST / COMPLIANCE ===================== -->
+    <section class="section section--alt" aria-labelledby="trust-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow"><i class="ph ph-lock-key" aria-hidden="true"></i> Safeguards</span>
+          <h2 id="trust-title">Regulated, insured and audited</h2>
+          <p>Lending is a promise about the future. These are the controls that stand behind ours.</p>
+        </div>
+
+        <div class="grid grid--4">
+          <article class="card reveal">
+            <span class="card__icon" aria-hidden="true"><i class="ph ph-shield-check"></i></span>
+            <h3>Bank-grade security</h3>
+            <p class="card__text">256-bit TLS in transit, encryption at rest and independent
+              penetration testing twice a year.</p>
+          </article>
+          <article class="card reveal" data-reveal-delay="80">
+            <span class="card__icon" aria-hidden="true"><i class="ph ph-scales"></i></span>
+            <h3>Fully licensed</h3>
+            <p class="card__text">Authorised consumer lender, NMLS #000000, supervised by the
+              relevant state banking departments.</p>
+          </article>
+          <article class="card reveal" data-reveal-delay="160">
+            <span class="card__icon" aria-hidden="true"><i class="ph ph-receipt-x"></i></span>
+            <h3>No hidden fees</h3>
+            <p class="card__text">No origination, arrangement or early-settlement charges — the APR
+              you see is the cost you pay.</p>
+          </article>
+          <article class="card reveal" data-reveal-delay="240">
+            <span class="card__icon" aria-hidden="true"><i class="ph ph-handshake"></i></span>
+            <h3>Fair collections</h3>
+            <p class="card__text">Miss a payment and you get a phone call and a plan, not a penalty
+              spiral. Support is free and confidential.</p>
+          </article>
+        </div>
+
+        <div class="trust-strip reveal">
+          <span class="trust-badge"><i class="ph ph-lock-simple" aria-hidden="true"></i> 256-bit SSL secured</span>
+          <span class="trust-badge"><i class="ph ph-certificate" aria-hidden="true"></i> SOC 2 Type II audited</span>
+          <span class="trust-badge"><i class="ph ph-bank" aria-hidden="true"></i> Deposits held in trust</span>
+          <span class="trust-badge"><i class="ph ph-file-text" aria-hidden="true"></i> Equal Credit Opportunity
+            Lender</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= TESTIMONIALS ========================= -->
+    <section class="section" aria-labelledby="reviews-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow"><i class="ph ph-chat-circle-text" aria-hidden="true"></i> Borrower stories</span>
+          <h2 id="reviews-title">What our customers actually say</h2>
+          <p>Independently collected reviews from borrowers who completed a loan with us.</p>
+        </div>
+
+        <div class="grid grid--3 three-card-grid">
+          <article class="quote-card reveal">
+            <div class="quote-card__stars" aria-label="Rated 5 out of 5">
+              <i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i>
+              <i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i>
+              <i class="ph-fill ph-star" aria-hidden="true"></i>
+            </div>
+            <p class="quote-card__text">“I had been quoted three different numbers elsewhere. LoanNest
+              showed me the total repayable on the first screen and it never changed.”</p>
+            <div class="quote-card__person">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80"
+                alt="Portrait of Maya Rodriguez" width="104" height="104" loading="lazy">
+              <span class="quote-card__name">Maya Rodriguez</span>
+              <span class="quote-card__role">Personal loan · Denver</span>
+            </div>
+          </article>
+
+          <article class="quote-card reveal" data-reveal-delay="100">
+            <div class="quote-card__stars" aria-label="Rated 5 out of 5">
+              <i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i>
+              <i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i>
+              <i class="ph-fill ph-star" aria-hidden="true"></i>
+            </div>
+            <p class="quote-card__text">“Our shop needed a new oven within the week. I spoke to the same
+              underwriter twice and the funds landed on Thursday.”</p>
+            <div class="quote-card__person">
+              <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=200&q=80"
+                alt="Portrait of Daniel Okafor" width="104" height="104" loading="lazy">
+              <span class="quote-card__name">Daniel Okafor</span>
+              <span class="quote-card__role">Business loan · Austin</span>
+            </div>
+          </article>
+
+          <article class="quote-card reveal" data-reveal-delay="200">
+            <div class="quote-card__stars" aria-label="Rated 4 out of 5">
+              <i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i>
+              <i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i>
+              <i class="ph ph-star" aria-hidden="true"></i>
+            </div>
+            <p class="quote-card__text">“The calculator matched my agreement to the dollar. After two
+              remortgages elsewhere, that was genuinely surprising.”</p>
+            <div class="quote-card__person">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80"
+                alt="Portrait of Priya Sharma" width="104" height="104" loading="lazy">
+              <span class="quote-card__name">Priya Sharma</span>
+              <span class="quote-card__role">Home loan · Seattle</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= FAQ ============================= -->
+    <section class="section section--alt" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow"><i class="ph ph-question" aria-hidden="true"></i> Good to know</span>
+          <h2 id="faq-title">Questions we are asked most</h2>
+          <p>Anything else, our team answers on the phone in under three minutes on average.</p>
+        </div>
+
+        <div class="accordion">
+          <div class="accordion__item is-open">
+            <h3>
+              <button class="accordion__trigger" type="button" aria-expanded="true" aria-controls="faq-1">
+                Will checking my rate affect my credit score?
+                <i class="ph ph-plus" aria-hidden="true"></i>
+              </button>
+            </h3>
+            <div class="accordion__panel" id="faq-1">
+              <div>
+                <p>No. Checking your rate uses a soft search that only you can see. A hard search is
+                  recorded only if you go on to accept a formal offer.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <h3>
+              <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-2">
+                How quickly will the money arrive?
+                <i class="ph ph-plus" aria-hidden="true"></i>
+              </button>
+            </h3>
+            <div class="accordion__panel" id="faq-2">
+              <div>
+                <p>Most personal and auto loans are funded the next working day after signing.
+                  Secured lending against property takes longer because of valuation and legal work —
+                  typically three to five weeks.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <h3>
+              <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-3">
+                Is there a penalty for paying off early?
+                <i class="ph ph-plus" aria-hidden="true"></i>
+              </button>
+            </h3>
+            <div class="accordion__panel" id="faq-3">
+              <div>
+                <p>Never. You can overpay any month or settle the balance in full at no cost, and
+                  you only pay interest for the days you actually held the money.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <h3>
+              <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-4">
+                What credit score do I need?
+                <i class="ph ph-plus" aria-hidden="true"></i>
+              </button>
+            </h3>
+            <div class="accordion__panel" id="faq-4">
+              <div>
+                <p>There is no single cut-off. We look at affordability, employment history and how
+                  you have managed credit recently. Borderline files are reviewed by a person, not
+                  declined automatically.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <h3>
+              <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-5">
+                What happens if I miss a payment?
+                <i class="ph ph-plus" aria-hidden="true"></i>
+              </button>
+            </h3>
+            <div class="accordion__panel" id="faq-5">
+              <div>
+                <p>Call us before the due date wherever possible. We can arrange a payment holiday
+                  or a revised schedule. Support is free, confidential and does not affect the rate on
+                  your existing agreement.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= CTA ============================= -->
+    <section class="section" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-band reveal">
+          <span class="eyebrow"><i class="ph ph-sparkle" aria-hidden="true"></i> Ready when you are</span>
+          <h2 id="cta-title">See your rate without touching your score</h2>
+          <p>Two minutes, six questions, and a figure you can hold us to. No obligation to proceed.</p>
+          <div class="cta-band__actions">
+            <a class="btn btn--accent" href="calculator.html">
+              Check my rate <i class="ph ph-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a class="btn btn--light" href="contact.html">Talk to a specialist</a>
+          </div>
+          <p class="cta-band__note">Representative example: $18,000 over 48 months at 8.9% APR —
+            48 payments of $447. Total repayable $21,456.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a class="brand" href="index.html" aria-label="LoanNest — home">
+            <img class="brand__logo" src="assets/images/loannest-logo.svg" alt="LoanNest" width="140" height="44">
+          </a>
+          <p class="footer-about">Fixed-rate personal, auto, home and business lending with the total
+            cost shown up front — since 2014.</p>
+          <div class="footer-badges">
+            <span class="trust-chip"><i class="ph ph-lock-simple" aria-hidden="true"></i> SSL secured</span>
+            <span class="trust-chip"><i class="ph ph-certificate" aria-hidden="true"></i> NMLS #000000</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Borrowing</h4>
+          <nav class="footer-links" aria-label="Borrowing">
+            <a href="loans.html">All loan types</a>
+            <a href="loan-detail.html">Personal loans</a>
+            <a href="loans.html?type=home">Home loans</a>
+            <a href="calculator.html">EMI calculator</a>
+          </nav>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <nav class="footer-links" aria-label="Company">
+            <a href="about.html">About us</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html">Customer login</a>
+            <a href="register.html">Open an account</a>
+          </nav>
+        </div>
+
+        <div class="footer-col">
+          <h4>Stay in the loop</h4>
+          <p class="footer-about">Rate changes and borrowing guides. One email a month, no selling.</p>
+          <!-- Mailchimp embed: replace this form action with your list's post URL -->
+          <form class="newsletter" novalidate>
+            <label class="visually-hidden" for="newsletterEmail">Email address</label>
+            <input type="email" id="newsletterEmail" name="EMAIL" placeholder="you@example.com" required>
+            <button class="btn btn--accent btn--sm" type="submit">Join</button>
+          </form>
+          <p class="newsletter-note" role="status"></p>
+          <div class="footer-social">
+            <a href="#" aria-label="LoanNest on X"><i class="ph ph-x-logo" aria-hidden="true"></i></a>
+            <a href="#" aria-label="LoanNest on LinkedIn"><i class="ph ph-linkedin-logo" aria-hidden="true"></i></a>
+            <a href="#" aria-label="LoanNest on Instagram"><i class="ph ph-instagram-logo" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-disclosure">
+          LoanNest is a placeholder financial services brand created for demonstration purposes. It is
+          not a real financial institution and does not offer credit. All rates, figures, approval
+          times and calculator results shown are illustrative estimates only and are not financial
+          advice or an offer of credit. Equal Credit Opportunity Lender.
+        </p>
+        <p class="footer-copy">© <span data-year>2026</span> LoanNest. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/calculator.js"></script>
+</body>
+
+</html>

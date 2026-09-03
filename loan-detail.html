@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Personal Loan — Rates, Terms, Eligibility | LoanNest</title>
+  <meta name="description" content="Full details of the LoanNest Personal Loan: 9.4 percent representative APR, 2,000 to 50,000 dollars over one to seven years, worked repayment examples and eligibility criteria.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..580&family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- GA_TAG — paste the Google Analytics snippet here -->
+
+  <script>
+    /* Apply the stored theme before first paint to avoid a flash of the wrong theme. */
+    (function () {
+      try {
+        var stored = localStorage.getItem('loannest-theme');
+        var dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', stored || (dark ? 'dark' : 'light'));
+      } catch (e) { /* storage blocked — default theme stays applied */ }
+    })();
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="LoanNest — home">
+        <img class="brand__logo" src="assets/images/loannest-logo.svg" alt="LoanNest" width="140" height="44">
+      </a>
+
+      <nav class="nav" id="primaryNav" aria-label="Primary">
+        <button class="nav__close" id="navClose" type="button" aria-label="Close menu">
+          <i class="ph ph-x" aria-hidden="true"></i>
+        </button>
+        <ul class="nav__list">
+          <li><a class="nav__link" href="index.html">Home</a></li>
+          <li><a class="nav__link is-active" href="loans.html" aria-current="page">Loans</a></li>
+          <li><a class="nav__link" href="calculator.html">Calculator</a></li>
+          <li><a class="nav__link" href="about.html">About</a></li>
+          <li><a class="nav__link" href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav__drawer-actions">
+          <div class="nav__drawer-theme">
+            <span>Appearance</span>
+            <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode">
+              <i class="ph ph-sun" aria-hidden="true"></i>
+              <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+          </div>
+          <a class="btn btn--primary btn--block" href="login.html">Login</a>
+        </div>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode">
+          <i class="ph ph-sun" aria-hidden="true"></i>
+          <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+        <a class="btn btn--primary btn--sm" href="login.html">Login</a>
+        <button class="hamburger" id="navToggle" type="button" aria-label="Open menu"
+                aria-expanded="false" aria-controls="primaryNav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="nav-backdrop" id="navBackdrop" hidden></div>
+
+  <main id="main">
+
+    <!-- ========================== PAGE HERO ========================== -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero__inner">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="ph ph-caret-right" aria-hidden="true"></i>
+            <a href="loans.html">Loans</a>
+            <i class="ph ph-caret-right" aria-hidden="true"></i>
+            <span aria-current="page">Personal Loan</span>
+          </nav>
+          <span class="eyebrow fade-up fade-up--1">
+            <i class="ph ph-wallet" aria-hidden="true"></i> Unsecured · Fixed rate
+          </span>
+          <h1 class="fade-up fade-up--2">Personal Loan</h1>
+          <p class="lead fade-up fade-up--3">
+            $2,000 to $50,000 over one to seven years, at a rate that is fixed the day you sign and
+            never moves again. No origination fee, no early settlement charge.
+          </p>
+        </div>
+        <div class="page-hero__media fade-up fade-up--4">
+          <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&w=1200&q=80"
+               alt="A borrower celebrating with a LoanNest specialist after a personal loan is approved"
+               width="1200" height="514" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= DETAIL BODY ========================= -->
+    <section class="section" aria-labelledby="detail-title">
+      <div class="container detail-layout">
+
+        <div class="detail-main">
+          <img class="detail-hero-img reveal"
+               src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80"
+               alt="A borrower planning repayments with a notebook, laptop and coffee at a kitchen table"
+               width="1200" height="525" loading="lazy">
+
+          <div class="detail-block reveal">
+            <h2 id="detail-title">What people use it for</h2>
+            <p>
+              Most of our personal loans go towards three things: clearing higher-cost card debt,
+              covering a one-off cost like a move or a wedding, or spreading a bill that arrived
+              without warning. Because the loan is unsecured, your home and car are never used as
+              collateral — the agreement rests on your income and credit history alone.
+            </p>
+
+            <div class="spec-grid">
+              <div class="spec">
+                <span class="spec__label">Representative APR</span>
+                <span class="spec__value">9.4%</span>
+              </div>
+              <div class="spec">
+                <span class="spec__label">Amount available</span>
+                <span class="spec__value">$2k – $50k</span>
+              </div>
+              <div class="spec">
+                <span class="spec__label">Repayment term</span>
+                <span class="spec__value">1 – 7 years</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-block reveal">
+            <h2>Rates and terms</h2>
+            <p>
+              Worked examples on a $18,000 loan at 9.4% APR. A longer term lowers the monthly payment
+              but increases the total interest you pay overall.
+            </p>
+            <div class="table-wrap">
+              <table class="data-table">
+                <caption class="visually-hidden">Example repayments on an 18,000 dollar personal loan at 9.4% APR</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Term</th>
+                    <th scope="col">Monthly payment</th>
+                    <th scope="col">Total interest</th>
+                    <th scope="col">Total repayable</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">2 years</th>
+                    <td class="num" data-label="Monthly payment">$826</td>
+                    <td class="num" data-label="Total interest">$1,814</td>
+                    <td class="num" data-label="Total repayable">$19,814</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3 years</th>
+                    <td class="num" data-label="Monthly payment">$576</td>
+                    <td class="num" data-label="Total interest">$2,725</td>
+                    <td class="num" data-label="Total repayable">$20,725</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4 years</th>
+                    <td class="num" data-label="Monthly payment">$451</td>
+                    <td class="num" data-label="Total interest">$3,663</td>
+                    <td class="num" data-label="Total repayable">$21,663</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5 years</th>
+                    <td class="num" data-label="Monthly payment">$377</td>
+                    <td class="num" data-label="Total interest">$4,627</td>
+                    <td class="num" data-label="Total repayable">$22,627</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">7 years</th>
+                    <td class="num" data-label="Monthly payment">$293</td>
+                    <td class="num" data-label="Total interest">$6,637</td>
+                    <td class="num" data-label="Total repayable">$24,637</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="disclaimer">
+              <i class="ph ph-info" aria-hidden="true"></i>
+              <span>Illustrative estimates, rounded to the nearest dollar, for a demonstration site.
+              9.4% APR is available to a proportion of successful applicants; your personalised rate
+              depends on credit history, income and term and is confirmed in writing before signing.</span>
+            </p>
+          </div>
+
+          <div class="detail-block reveal">
+            <h2>Eligibility criteria</h2>
+            <p>Everything below is checked with a soft search first, which leaves no mark on your file.</p>
+            <ul class="check-list">
+              <li><i class="ph ph-check-circle" aria-hidden="true"></i> Aged 18 or over and resident here</li>
+              <li><i class="ph ph-check-circle" aria-hidden="true"></i> Three years of address history</li>
+              <li><i class="ph ph-check-circle" aria-hidden="true"></i> Regular income, employed or self-employed</li>
+              <li><i class="ph ph-check-circle" aria-hidden="true"></i> No bankruptcy in the last six years</li>
+              <li><i class="ph ph-check-circle" aria-hidden="true"></i> A current account in your own name</li>
+              <li><i class="ph ph-check-circle" aria-hidden="true"></i> Repayments affordable after existing commitments</li>
+            </ul>
+          </div>
+
+          <div class="detail-block reveal">
+            <h2>What you will need to upload</h2>
+            <ul class="doc-list">
+              <li><i class="ph ph-identification-card" aria-hidden="true"></i> Government photo ID — passport or driving licence</li>
+              <li><i class="ph ph-bank" aria-hidden="true"></i> Three months of bank statements for your main account</li>
+              <li><i class="ph ph-receipt" aria-hidden="true"></i> Latest payslip, or two years of accounts if self-employed</li>
+              <li><i class="ph ph-house" aria-hidden="true"></i> Proof of address dated within the last three months</li>
+            </ul>
+          </div>
+
+          <div class="detail-block reveal">
+            <h2>Fees and charges</h2>
+            <div class="table-wrap">
+              <table class="data-table">
+                <caption class="visually-hidden">Personal loan fees and charges</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Charge</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">When it applies</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Origination fee</th>
+                    <td class="num" data-label="Amount">$0</td>
+                    <td data-label="When it applies">Never — the APR is the whole cost</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Early settlement</th>
+                    <td class="num" data-label="Amount">$0</td>
+                    <td data-label="When it applies">Overpay or settle in full at any time</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Late payment</th>
+                    <td class="num" data-label="Amount">$15</td>
+                    <td data-label="When it applies">After a 15-day grace period</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Returned payment</th>
+                    <td class="num" data-label="Amount">$12</td>
+                    <td data-label="When it applies">If a direct debit is refused by your bank</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="detail-block reveal">
+            <h2>Common questions</h2>
+            <div class="accordion">
+              <div class="accordion__item is-open">
+                <h3>
+                  <button class="accordion__trigger" type="button" aria-expanded="true" aria-controls="pd-1">
+                    Can I settle the loan early?
+                    <i class="ph ph-plus" aria-hidden="true"></i>
+                  </button>
+                </h3>
+                <div class="accordion__panel" id="pd-1">
+                  <div><p>Yes, at any point and at no cost. Interest is charged daily, so settling early
+                    genuinely reduces what you pay rather than simply bringing payments forward.</p></div>
+                </div>
+              </div>
+              <div class="accordion__item">
+                <h3>
+                  <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="pd-2">
+                    Can I change my payment date?
+                    <i class="ph ph-plus" aria-hidden="true"></i>
+                  </button>
+                </h3>
+                <div class="accordion__panel" id="pd-2">
+                  <div><p>You can move it once per year to any date in the month, free of charge, so it
+                    lands after payday. Changes take effect from the following cycle.</p></div>
+                </div>
+              </div>
+              <div class="accordion__item">
+                <h3>
+                  <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="pd-3">
+                    Will a joint application get a better rate?
+                    <i class="ph ph-plus" aria-hidden="true"></i>
+                  </button>
+                </h3>
+                <div class="accordion__panel" id="pd-3">
+                  <div><p>Often, yes. Two incomes usually improve affordability. Both applicants are
+                    equally responsible for the full balance, so it is worth discussing first.</p></div>
+                </div>
+              </div>
+              <div class="accordion__item">
+                <h3>
+                  <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="pd-4">
+                    How soon do the funds arrive?
+                    <i class="ph ph-plus" aria-hidden="true"></i>
+                  </button>
+                </h3>
+                <div class="accordion__panel" id="pd-4">
+                  <div><p>Once documents are verified and the agreement is signed electronically, most
+                    borrowers see the money in their account the next working day.</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===================== STICKY ESTIMATE ===================== -->
+        <aside class="sticky-card" id="detailQuote" data-rate="9.4" data-min="2000" data-max="50000"
+               aria-label="Personal loan repayment estimate">
+          <div class="sticky-card__head">
+            <span class="loan-card__rate-label">Representative APR</span>
+            <span class="sticky-card__rate">9.4%</span>
+            <p class="card__text">Fixed for the full term</p>
+          </div>
+
+          <div class="mini-quote">
+            <div class="mini-quote__row">
+              <div class="mini-quote__field">
+                <label for="dqAmount">Amount ($)</label>
+                <input type="text" id="dqAmount" inputmode="numeric" value="18,000" autocomplete="off">
+              </div>
+              <div class="mini-quote__field">
+                <label for="dqTerm">Term</label>
+                <select id="dqTerm">
+                  <option value="24">2 years</option>
+                  <option value="36">3 years</option>
+                  <option value="48" selected>4 years</option>
+                  <option value="60">5 years</option>
+                  <option value="84">7 years</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="sticky-card__divider"></div>
+
+          <div class="sticky-card__rows">
+            <div class="sticky-card__row">
+              <span>Monthly payment</span>
+              <strong id="dqEmi">—</strong>
+            </div>
+            <div class="sticky-card__row">
+              <span>Total interest</span>
+              <strong id="dqInterest">—</strong>
+            </div>
+            <div class="sticky-card__row">
+              <span>Total repayable</span>
+              <strong id="dqTotal">—</strong>
+            </div>
+          </div>
+
+          <!-- Stripe / PayPal button placeholder — wire the application deposit flow here -->
+          <a class="btn btn--accent btn--block" id="dqLink" href="calculator.html">
+            Apply now <i class="ph ph-arrow-right" aria-hidden="true"></i>
+          </a>
+          <a class="btn btn--ghost btn--block" href="contact.html">Speak to a specialist</a>
+
+          <p class="form-note">
+            <i class="ph ph-lock-simple" aria-hidden="true"></i> Secure connection · soft search only
+          </p>
+          <p class="disclaimer">
+            <i class="ph ph-info" aria-hidden="true"></i>
+            <span>Estimates only, not an offer of credit.</span>
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ====================== RELATED PRODUCTS ====================== -->
+    <section class="section section--alt" aria-labelledby="related-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow"><i class="ph ph-squares-four" aria-hidden="true"></i> Also consider</span>
+          <h2 id="related-title">Other ways to borrow</h2>
+          <p>If an unsecured personal loan is not the right shape, one of these may fit better.</p>
+        </div>
+
+        <div class="grid grid--3 three-card-grid">
+          <article class="loan-card reveal">
+            <span class="loan-card__icon" aria-hidden="true"><i class="ph ph-cards"></i></span>
+            <h3>Debt Consolidation</h3>
+            <div class="loan-card__rate">
+              <span class="loan-card__rate-value">8.7%</span>
+              <span class="loan-card__rate-label">APR from</span>
+            </div>
+            <p class="loan-card__text">One fixed payment instead of several card balances, with your
+               existing lenders paid directly.</p>
+            <div class="loan-card__meta">
+              <div>Amount <span>$5k – $60k</span></div>
+              <div>Term <span>2 – 7 yrs</span></div>
+            </div>
+            <div class="loan-card__actions">
+              <a class="btn btn--ghost btn--block btn--sm" href="loans.html?type=personal">See product</a>
+            </div>
+          </article>
+
+          <article class="loan-card reveal" data-reveal-delay="100">
+            <span class="loan-card__icon" aria-hidden="true"><i class="ph ph-blueprint"></i></span>
+            <h3>Home Equity Line</h3>
+            <div class="loan-card__rate">
+              <span class="loan-card__rate-value">6.4%</span>
+              <span class="loan-card__rate-label">APR from</span>
+            </div>
+            <p class="loan-card__text">A cheaper secured rate for larger renovation projects, drawn
+               down only as you need it.</p>
+            <div class="loan-card__meta">
+              <div>Amount <span>$25k – $500k</span></div>
+              <div>Term <span>5 – 20 yrs</span></div>
+            </div>
+            <div class="loan-card__actions">
+              <a class="btn btn--ghost btn--block btn--sm" href="loans.html?type=home">See product</a>
+            </div>
+          </article>
+
+          <article class="loan-card reveal" data-reveal-delay="200">
+            <span class="loan-card__icon" aria-hidden="true"><i class="ph ph-storefront"></i></span>
+            <h3>Business Growth Loan</h3>
+            <div class="loan-card__rate">
+              <span class="loan-card__rate-value">8.2%</span>
+              <span class="loan-card__rate-label">APR from</span>
+            </div>
+            <p class="loan-card__text">Keep business borrowing off your personal file, assessed on
+               trading cash flow instead.</p>
+            <div class="loan-card__meta">
+              <div>Amount <span>$10k – $500k</span></div>
+              <div>Term <span>1 – 10 yrs</span></div>
+            </div>
+            <div class="loan-card__actions">
+              <a class="btn btn--ghost btn--block btn--sm" href="loans.html?type=business">See product</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= CTA ============================= -->
+    <section class="section section--tight" aria-labelledby="detail-cta-title">
+      <div class="container">
+        <div class="cta-band reveal">
+          <span class="eyebrow"><i class="ph ph-shield-check" aria-hidden="true"></i> Soft search</span>
+          <h2 id="detail-cta-title">Find your rate in two minutes</h2>
+          <p>Six questions, no impact on your credit score, and a figure you can hold us to.</p>
+          <div class="cta-band__actions">
+            <a class="btn btn--accent" href="calculator.html">
+              Check my rate <i class="ph ph-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a class="btn btn--light" href="loans.html">Back to all loans</a>
+          </div>
+          <p class="cta-band__note">Representative example: $18,000 over 48 months at 9.4% APR —
+             48 payments of $451. Total repayable $21,663.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a class="brand" href="index.html" aria-label="LoanNest — home">
+            <img class="brand__logo" src="assets/images/loannest-logo.svg" alt="LoanNest" width="140" height="44">
+          </a>
+          <p class="footer-about">Fixed-rate personal, auto, home and business lending with the total
+             cost shown up front — since 2014.</p>
+          <div class="footer-badges">
+            <span class="trust-chip"><i class="ph ph-lock-simple" aria-hidden="true"></i> SSL secured</span>
+            <span class="trust-chip"><i class="ph ph-certificate" aria-hidden="true"></i> NMLS #000000</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Borrowing</h4>
+          <nav class="footer-links" aria-label="Borrowing">
+            <a href="loans.html">All loan types</a>
+            <a href="loan-detail.html">Personal loans</a>
+            <a href="loans.html?type=home">Home loans</a>
+            <a href="calculator.html">EMI calculator</a>
+          </nav>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <nav class="footer-links" aria-label="Company">
+            <a href="about.html">About us</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html">Customer login</a>
+            <a href="register.html">Open an account</a>
+          </nav>
+        </div>
+
+        <div class="footer-col">
+          <h4>Stay in the loop</h4>
+          <p class="footer-about">Rate changes and borrowing guides. One email a month, no selling.</p>
+          <!-- Mailchimp embed: replace this form action with your list's post URL -->
+          <form class="newsletter" novalidate>
+            <label class="visually-hidden" for="newsletterEmail">Email address</label>
+            <input type="email" id="newsletterEmail" name="EMAIL" placeholder="you@example.com" required>
+            <button class="btn btn--accent btn--sm" type="submit">Join</button>
+          </form>
+          <p class="newsletter-note" role="status"></p>
+          <div class="footer-social">
+            <a href="#" aria-label="LoanNest on X"><i class="ph ph-x-logo" aria-hidden="true"></i></a>
+            <a href="#" aria-label="LoanNest on LinkedIn"><i class="ph ph-linkedin-logo" aria-hidden="true"></i></a>
+            <a href="#" aria-label="LoanNest on Instagram"><i class="ph ph-instagram-logo" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-disclosure">
+          LoanNest is a placeholder financial services brand created for demonstration purposes. It is
+          not a real financial institution and does not offer credit. All rates, figures, approval
+          times and calculator results shown are illustrative estimates only and are not financial
+          advice or an offer of credit. Equal Credit Opportunity Lender.
+        </p>
+        <p class="footer-copy">© <span data-year>2026</span> LoanNest. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/calculator.js"></script>
+</body>
+</html>
