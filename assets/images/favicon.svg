@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="ln-fav-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E4438"/>
+      <stop offset="100%" stop-color="#092E26"/>
+    </linearGradient>
+    <linearGradient id="ln-gold-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E5AA38"/>
+      <stop offset="100%" stop-color="#C58F24"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background rounded tile -->
+  <rect width="64" height="64" rx="14" fill="url(#ln-fav-grad)"/>
+
+  <!-- Logo Mark centered -->
+  <g transform="translate(32, 32.5) scale(0.66) translate(-45, -41)">
+    <!-- Nest bowl base -->
+    <path d="M8 58 C8 46, 20 40, 45 40 C70 40, 82 46, 82 58 C82 62, 78 64, 72 62 C64 68, 26 68, 18 62 C12 64, 8 62, 8 58 Z" fill="url(#ln-gold-grad)"/>
+    
+    <!-- Nest inner weave highlight -->
+    <path d="M14 50 C22 44, 68 44, 76 50 C70 52, 60 48, 45 48 C30 48, 20 52, 14 50 Z" fill="#FFE8B0" opacity="0.65"/>
+
+    <!-- Roof / House glyph -->
+    <path d="M45 13 L71 34 L63 34 L63 52 L27 52 L27 34 L19 34 Z" fill="url(#ln-gold-grad)"/>
+    
+    <!-- Doorway cut-out in cream -->
+    <path d="M40 52 L40 39 L50 39 L50 52 Z" fill="#FBF8F2"/>
+  </g>
+</svg>

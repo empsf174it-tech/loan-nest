@@ -296,7 +296,7 @@ strong { font-weight: var(--fw-ui); color: var(--text); }
   gap: var(--s-2);
   font-size: var(--fs-sm);
   font-weight: var(--fw-ui);
-  color: var(--c-primary);
+  color: var(--c-accent);
 }
 .link-arrow i { transition: transform var(--speed) var(--ease); }
 .link-arrow:hover i { transform: translateX(4px); }
@@ -350,7 +350,7 @@ strong { font-weight: var(--fw-ui); color: var(--text); }
 .brand__text b { font-weight: inherit; color: var(--c-accent); }
 /* SVG lockup — one fixed height everywhere (header, footer, auth pages) */
 .brand { gap: 0; }
-.brand__logo { display: block; height: 40px; width: auto; }
+.brand__logo { display: block; height: 52px; width: auto; }
 
 .nav { display: flex; align-items: center; }
 .nav__list { display: flex; align-items: center; gap: var(--s-1); }
@@ -1308,6 +1308,7 @@ strong { font-weight: var(--fw-ui); color: var(--text); }
 .calc-row:last-child { border-bottom: 0; padding-bottom: 0; }
 .calc-row span { opacity: 0.8; }
 .calc-row strong { font-family: var(--font-mono); font-weight: var(--fw-body); font-size: 1.0625rem; }
+.calc-panel--result .calc-row strong, .calc-panel--result strong { color: inherit; }
 
 .calc-split { display: flex; flex-direction: column; gap: var(--s-3); }
 .calc-split__bar {
@@ -1357,8 +1358,9 @@ strong { font-weight: var(--fw-ui); color: var(--text); }
 }
 .team-card__role { font-size: var(--fs-xs); color: var(--c-accent); letter-spacing: 0.06em; text-transform: uppercase; }
 .team-card__bio { font-size: var(--fs-sm); }
-.team-card__socials { display: flex; gap: var(--s-2); margin-top: auto; padding-top: var(--s-3); color: var(--muted); }
-.team-card__socials a:hover { color: var(--c-primary); }
+.team-card__socials { display: flex; gap: var(--s-3); margin-top: auto; padding-top: var(--s-3); color: var(--muted); font-size: 1.375rem; }
+.team-card__socials a { display: grid; place-items: center; width: 40px; height: 40px; border-radius: var(--radius); transition: color var(--speed) var(--ease), background var(--speed) var(--ease); }
+.team-card__socials a:hover { color: var(--c-primary); background: var(--primary-soft); }
 
 /* --- Timeline --- */
 .timeline {
@@ -1419,7 +1421,7 @@ strong { font-weight: var(--fw-ui); color: var(--text); }
   border: 1px solid var(--line);
   border-radius: var(--radius);
 }
-.contact-info i {
+.contact-info > i {
   display: grid;
   place-items: center;
   width: 44px; height: 44px;
@@ -1444,6 +1446,7 @@ strong { font-weight: var(--fw-ui); color: var(--text); }
 .map-embed iframe { width: 100%; height: 100%; border: 0; display: block; }
 
 .social-row { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.social-row a i { color: inherit; background: none; width: auto; height: auto; display: inline; }
 .social-row a {
   display: grid;
   place-items: center;
@@ -1511,7 +1514,7 @@ strong { font-weight: var(--fw-ui); color: var(--text); }
     0 10px 30px -15px rgba(0, 0, 0, 0.4);
 }
 .auth-brand { display: flex; justify-content: center; }
-.auth-brand .brand__logo { height: 48px; }
+.auth-brand .brand__logo { height: 62px; }
 
 .auth-card__head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--s-2); }
 .auth-card__head h1 {
@@ -2021,3 +2024,35 @@ strong { font-weight: var(--fw-ui); color: var(--text); }
 
 /* Optional-field hint inside a label */
 .field-optional { color: var(--muted); font-weight: var(--fw-body); }
+
+/* ==========================================================================
+   Back to top button
+   ========================================================================== */
+.back-to-top {
+  position: fixed;
+  right: var(--s-5);
+  bottom: var(--s-5);
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: var(--c-primary);
+  color: var(--on-primary);
+  font-size: 1.25rem;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity var(--speed) var(--ease), transform var(--speed) var(--ease), visibility var(--speed);
+}
+.back-to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.back-to-top:hover { background: var(--c-accent); }
+
+@media (max-width: 640px) {
+  .back-to-top { right: var(--s-4); bottom: var(--s-4); width: 44px; height: 44px; }
+}
